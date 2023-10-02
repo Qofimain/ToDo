@@ -1,0 +1,10 @@
+ports:
+  - port: 5173
+    onOpen: open-preview
+
+tasks:
+  - init: npm install
+
+vscode:
+  extensions:
+    - svelte.svelte-vscode
