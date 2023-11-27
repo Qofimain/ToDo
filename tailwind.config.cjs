@@ -1,17 +1,16 @@
 /** @type {import('tailwindcss').Config}*/
 const config = {
-    content: ["./src/**/*.{html,js,svelte,ts}"],
+  content: ["./src/**/*.{html,js,svelte,ts}"],
+
+  theme: {
+    extend: {},
+  },
+
+  plugins: [
+    require("daisyui",
+    "@tailwindcss/forms"),
   
-    theme: {
-      extend: {},
-    },
-  
-      plugins: [
-        require("daisyui",
-        "@tailwindcss/forms"),
-      
-      ],
-   
-  };
-  
-  module.exports = config;
+  ],
+};
+
+module.exports = config;
