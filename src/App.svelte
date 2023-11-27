@@ -39,12 +39,12 @@
 	</ul>
 
 	<!-- контент должен центрироваться по горизонтали и вертикали-->
-	<div class="flex flex-col items-center justify-center">
-		<!-- tmp для отладки -->
+	<!-- <div class="flex flex-col items-center justify-center">
+		tmp для отладки
 		{#if $supauser.user != null}
 			<p>x{$supauser.user.id}</p>
 		{/if}
-	</div>
+	</div> -->
 	<!-- tmp для проверки центрирования -->
 	<!-- <p class="self-center">middle tmp</p> -->
 

@@ -19,11 +19,12 @@
 </script>
 
 
-<div>
+<div class="flex flex-col items-center justify-center">
 {#if todos}
     {#each todos as item}
         <p>
             {item.Text}
+            {item.Done}
         </p>
     {/each}
 {:else}
