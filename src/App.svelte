@@ -24,7 +24,7 @@
 >
 	<!-- заготовка для top-меню -->
 
-	<ul class="flex flex-row h-10 content-center flex-wrap px-3 bg-cyan-500">
+	<ul class="flex flex-row h-10 content-center flex-wrap px-3 bg-cyan-500 text-black">
 		<li>
 			<button on:click={toggleComp}>Вход</button>
 		</li>

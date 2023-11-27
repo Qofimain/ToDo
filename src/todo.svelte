@@ -4,22 +4,26 @@
     import { supauser } from "./store";
 
     let todos = null;
+    let ErrorMasage = null;
     
     onMount(async () => {
-        let { data: mytodos, error } = await supabase
-            .from("mytodos")
+        let { data: GrigorievToDo, error } = await supabase
+            .from("GrigorievToDo")
             .select("*");
-
-        if (mytodos) {
-            todos = mytodos;
+            
+        if (GrigorievToDo) {
+            todos = GrigorievToDo;
         }
+        
     });
 </script>
+
+
 <div>
 {#if todos}
     {#each todos as item}
         <p>
-            {item.content}
+            {item.Text}
         </p>
     {/each}
 {:else}
