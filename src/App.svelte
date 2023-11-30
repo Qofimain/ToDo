@@ -29,7 +29,7 @@
 			<button on:click={toggleComp}>Вход</button>
 		</li>
 		<li>
-			<button on:click={() => (comp = null)}>Hide</button>
+			<button on:click={() => (comp = null)}>Скрыть</button>
 		</li>
 		{#if $supauser.user}
 		    <li>
@@ -38,9 +38,8 @@
 		{/if}
 	</ul>
 
-	<!-- контент должен центрироваться по горизонтали и вертикали-->
 	<!-- <div class="flex flex-col items-center justify-center">
-		tmp для отладки
+		
 		{#if $supauser.user != null}
 			<p>x{$supauser.user.id}</p>
 		{/if}
@@ -49,9 +48,10 @@
 	<!-- <p class="self-center">middle tmp</p> -->
 
 	<!-- место для компонентов -->
-	<svelte:component this={comp} hide={hideSignIn} class="self-center" />
-
-	<div class=" p-2 bg-blue-300">
+	<div class="w-1/2  bg-sky-500/75 m-auto">
+	    <svelte:component this={comp} hide={hideSignIn} class="m-auto " />
+    </div>
+	<div class=" p-2 bg-blue-300  text-black">
 		<p>
 			Footer (подвал). Всегда должен быть внизу страницы. Родитель д.б.
 			flex-col justify-between
