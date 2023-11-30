@@ -48,16 +48,26 @@
          //обработка (fake) добавления
         const { data, error } = await supabase
             .from("GrigorievToDo")
-            .insert([{ Text: "новое дело 6", Done: false }])
+            .insert([{ UserID: $supauser.user.id, Text: "новое дело", Done: false }])
             .select();
 
         console.log(error, data);
         if (data) {
             todos = [
                 ...todos,
-                { Text: data[0].Text, Done: data[0].Done },
+                { id: data[0].id, UserID: data[0].UserID, Text: data[0].Text, Done: data[0].Done },
             ];
+            
         }
+    }
+
+    async function deleteToList(id){
+
+        const { error } = await supabase
+            .from('GrigorievToDo')
+            .delete()
+            .eq('id', id)
+            refresh()
     }
     async function onChange(ev) {
         //обработка checkBox
@@ -87,11 +97,15 @@
                             id={item.id}
                             on:change={onChange}
                             bind:checked={item.Done}
-                            type="checkbox"
+                            type="checkbox"  
                         />
+
                     </div>
                     <div>
                         {item.Text}
+                        <button on:click={() => deleteToList(item.id)}>
+                            ❌
+                        </button>
                     </div>
                 </div>
             {/each}
