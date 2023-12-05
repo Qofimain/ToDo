@@ -7,7 +7,7 @@
     import { supauser } from "./store";
 
     let todos = null;
-    
+    let newItem = '';
     // onMount(async () => {
     //     let { data: GrigorievToDo, error } = await supabase
     //         .from("GrigorievToDo")
@@ -48,7 +48,7 @@
          //обработка (fake) добавления
         const { data, error } = await supabase
             .from("GrigorievToDo")
-            .insert([{ UserID: $supauser.user.id, Text: "новое дело", Done: false }])
+            .insert([{ UserID: $supauser.user.id, Text: newItem, Done: false }])
             .select();
 
         console.log(error, data);
@@ -115,6 +115,7 @@
     {/if}
 
     <div>
+        <input bind:value={newItem} type="text" placeholder="Новое дело..">
         <button on:click={addToList}> Добавить </button>
     </div>
     <div>
