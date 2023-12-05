@@ -87,8 +87,19 @@
 <div class="flex flex-col items-center justify-center text-black">
     {#if todos}
         <div class="flex flex-col">
+            <p class = "border-b border-black">
+                ㅤ
+            </p>
             {#each todos as item}
-                <div class="flex flex-row justify-between">
+                <div class="[&:not(:first-child)]:border-l
+                            [&:not(:first-child)]:border-r
+                            [&:not(:first-child)]:border-b
+                            [&:first-child]:border
+                             border-black
+                            flex flex-row
+                            justify-between
+                            p-2
+                            rw">
                     <div>
                         {item.id}
                     </div>
@@ -114,7 +125,10 @@
         <p>Загрузка данных...</p>
     {/if}
 
-    <div>
+    <div class="flex flex-col">
+        <p>
+            ㅤ
+        </p>
         <input bind:value={newItem} type="text" placeholder="Новое дело..">
         <button on:click={addToList}> Добавить </button>
     </div>
@@ -123,7 +137,19 @@
     </div>
 </div>
 
+<style>
+    /* .rw:first-child {
+        border: 1px solid red;
+    }
+    .rw:not(:first-child) {
+        border: 1px solid red;
+        border-width: 0 1px 1px 1px;
+    }
 
+    .rw{
+        border-bottom: 1px solid blue;
+        } */
+</style>
 
 <!-- <div class="flex flex-col items-center justify-center">
 {#if todos}
