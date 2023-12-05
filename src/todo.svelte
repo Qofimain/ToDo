@@ -84,26 +84,27 @@
      }
 </script>
 
-<div class="flex flex-col items-center justify-center text-black">
+<div class="flex flex-col items-center  justify-center text-black">
     {#if todos}
         <div class="flex flex-col">
             <p class = "border-b border-black">
                 ㅤ
             </p>
             {#each todos as item}
-                <div class="[&:not(:first-child)]:border-l
+                <div class="flex flex-row
+                            justify-between
+                            [&:not(:first-child)]:border-l
                             [&:not(:first-child)]:border-r
                             [&:not(:first-child)]:border-b
                             [&:first-child]:border
                              border-black
-                            flex flex-row
-                            justify-between
-                            p-2
-                            rw">
-                    <div>
+                            p-1 ">
+                    
+                    <div >
                         {item.id}
                     </div>
-                    <div>
+                    <div class="flex justify-between">
+                    <div >
                         <input
                             id={item.id}
                             on:change={onChange}
@@ -112,14 +113,19 @@
                         />
 
                     </div>
-                    <div>
+                    <div >
                         {item.Text}
+                        
+                    </div>
+                </div>
+                    <div >
                         <button on:click={() => deleteToList(item.id)}>
                             ❌
                         </button>
                     </div>
                 </div>
             {/each}
+            
         </div>
     {:else}
         <p>Загрузка данных...</p>
@@ -138,6 +144,12 @@
 </div>
 
 <style>
+
+.ColRow {
+    list-style: none; /* removes bullets */
+    margin-left: 0;
+    padding-left: 0;
+  }
     /* .rw:first-child {
         border: 1px solid red;
     }

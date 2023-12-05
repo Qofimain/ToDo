@@ -48,7 +48,7 @@
 	<!-- <p class="self-center">middle tmp</p> -->
 
 	<!-- место для компонентов -->
-	<div class="w-1/2  bg-sky-500/75 m-auto">
+	<div class="w-auto  bg-sky-500/75 m-auto">
 	    <svelte:component this={comp} hide={hideSignIn} class="m-auto " />
     </div>
 	<div class=" p-2 bg-blue-300  text-black">
@@ -61,7 +61,7 @@
 
 <style>
 	:global(body) {
-		height: 100vh;
+		min-height: 100vh;
 		background-color: rgb(235, 245, 245);
 	}
 
