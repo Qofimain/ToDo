@@ -19,8 +19,11 @@
 </script>
 
 
-<main
+<!-- <main
 	class="border border-gray-400 flex flex-col align-middle justify-between min-h-screen h-auto p-2 m-2"
+> -->
+	<main
+	class="border border-gray-400 container min-h-screen h-auto p-2 m-2"
 >
 	<!-- заготовка для top-меню -->
 
@@ -63,6 +66,12 @@
 	:global(body) {
 		min-height: 100vh;
 		background-color: rgb(235, 245, 245);
+	}
+	.container{
+	
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
 	}
 
 	/* навигацию сделать компонентом */

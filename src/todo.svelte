@@ -84,27 +84,27 @@
      }
 </script>
 
-<div class="flex flex-col items-center  justify-center text-black">
+<div class=" text-black">
     {#if todos}
         <div class="flex flex-col">
             <p class = "border-b border-black">
                 ㅤ
             </p>
             {#each todos as item}
-                <div class="flex flex-row
-                            justify-between
-                            [&:not(:first-child)]:border-l
-                            [&:not(:first-child)]:border-r
-                            [&:not(:first-child)]:border-b
-                            [&:first-child]:border
-                             border-black
-                            p-1 ">
+                <div class="[&:not(:first-child)]:border-l
+                [&:not(:first-child)]:border-r
+                [&:not(:first-child)]:border-b
+                [&:first-child]:border
+                border-black
+                todorow
+                p-2
+                ">
                     
                     <div >
                         {item.id}
                     </div>
-                    <div class="flex justify-between">
-                    <div >
+                    
+                    <div class='check'>
                         <input
                             id={item.id}
                             on:change={onChange}
@@ -113,17 +113,18 @@
                         />
 
                     </div>
-                    <div >
+                    <div style=" text-align:left" >
                         {item.Text}
                         
                     </div>
-                </div>
                     <div >
                         <button on:click={() => deleteToList(item.id)}>
                             ❌
                         </button>
                     </div>
                 </div>
+                    
+                
             {/each}
             
         </div>
@@ -131,25 +132,24 @@
         <p>Загрузка данных...</p>
     {/if}
 
-    <div class="flex flex-col">
+    <div class = "flex flex-col">
         <p>
             ㅤ
         </p>
-        <input bind:value={newItem} type="text" placeholder="Новое дело..">
+        <dev class = "flex justify-center ">
+            <dev class = "border border-black">
+            <input bind:value={newItem} type="text" placeholder="Новое дело..">
+        </dev>
+        </dev>
         <button on:click={addToList}> Добавить </button>
-    </div>
-    <div>
         <button on:click={refresh}> Обновить </button>
+        
     </div>
+    
 </div>
 
 <style>
 
-.ColRow {
-    list-style: none; /* removes bullets */
-    margin-left: 0;
-    padding-left: 0;
-  }
     /* .rw:first-child {
         border: 1px solid red;
     }
@@ -159,6 +159,27 @@
     }
 
     .rw{
+        border-bottom: 1px solid blue;
+        } */
+        .todorow{
+        display: grid;
+        gap: 5px;
+        grid-template-columns:  20px 20px 1fr 20px;
+        grid-template-rows: 1fr;
+        align-items: center;
+    }
+    .check{
+        text-align: center;
+    }
+    /* .rw:first-child {
+        border: 1px solid red;
+    }
+    .rw:not(:first-child) {
+        border: 1px solid red;
+        border-width: 0 1px 1px 1px;
+    } */
+
+    /* .rw{
         border-bottom: 1px solid blue;
         } */
 </style>
